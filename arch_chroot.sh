@@ -1,7 +1,7 @@
 #!/bin/bash
-pacman -S linux linux-headers linux-lts linux-lts-headers openssh nano
+pacman -S --noconfirm linux linux-headers linux-lts linux-lts-headers openssh nano
 systemctl enable sshd
-pacman -S networkmanager wpa_supplicant wireless_tools netctl dialog git
+pacman -S --noconfirm networkmanager wpa_supplicant wireless_tools netctl dialog git
 systemctl enable NetworkManager
 mkinitcpio -p linux
 mkinitcpio -p linux-lts
@@ -14,5 +14,5 @@ useradd -m -g users -G wheel $userName
 echo "Setting password for user"
 passwd $userName
 EDITOR=nano visudo
-pacman -S grub efibootmgr dosfstools os-prober mtools
+pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
 echo "Mount EFI partion"
