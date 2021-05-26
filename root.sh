@@ -1,5 +1,4 @@
 #!/bin/bash
-
 echo "Setting up disks"
 cfdisk
 echo "Mount disk"
@@ -8,7 +7,6 @@ mkdir /mnt/home
 mkdir /mnt/boot
 mkdir /mnt/boot/EFI
 mkdir /mnt/etc
-mkdir /mnt/etc/fstab
-echo "genfstab -U /mnt >> /mnt/etc/fstab"
+genfstab -U /mnt >> /mnt/etc/fstab
 echo "pacstrap -i /mnt base base-devel"
 echo "arch-chroot /mnt"
