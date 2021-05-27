@@ -1,13 +1,13 @@
 #!/bin/bash
-timedatectl set-timezone Asia/Ho_Chi_Minh
-systemctl enable sysdemd-timesyncd
+sudo timedatectl set-timezone Asia/Ho_Chi_Minh
+sudo systemctl enable sysdemd-timesyncd
 echo "Enter hostname"
 read hostname
-hostnamectl set-hostname hostname
+sudo hostnamectl set-hostname $hostname
 basehost="127.0.0.1 "
 echo "127.0.0.1 localhost" >>/etc/hosts
 echo "$basehost$hostname" >>/etc/hosts
-pacman -S --noconfirm intel-ucode xorg xorg-server nvidia-lts nvidia mesa
+sudo pacman -S --noconfirm intel-ucode xorg xorg-server nvidia-lts nvidia mesa
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
