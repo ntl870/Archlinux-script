@@ -9,10 +9,11 @@ nano /etc/locale.gen
 locale-gen
 passwd
 echo "Creating user, enter username"
-read $userName
+read userName
 useradd -m -g users -G wheel $userName
 echo "Setting password for user"
 passwd $userName
 EDITOR=nano visudo
 pacman -S --noconfirm grub efibootmgr dosfstools os-prober mtools
 echo "Mount EFI partion"
+ 
