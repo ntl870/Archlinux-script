@@ -7,7 +7,7 @@ sudo hostnamectl set-hostname $hostname
 basehost="127.0.0.1 "
 echo "127.0.0.1 localhost" >>/etc/hosts
 echo "$basehost$hostname" >>/etc/hosts
-sudo pacman -S --noconfirm intel-ucode xorg xorg-server nvidia-lts nvidia mesa linux-firmware
+sudo pacman -S --noconfirm intel-ucode xorg xorg-server nvidia-lts nvidia mesa linux-firmware gvfs
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
