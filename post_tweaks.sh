@@ -14,16 +14,39 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 
+echo "Your CPU came from which manufacturer? (amd or intel):"
+echo "1---Intel"
+echo "2---AMD"
+read cpu_choice
+case $cpu_choice in
+1)
+    sudo pacman -S --noconfirm intel-ucode
+    ;;
+2)
+    sudo pacman -S --noconfirm amd-ucode
+    ;;
+esac
+
+echo "Are you using nvidia graphic card ?"
+echo "y---Yes"
+echo "n---No"
+read gpu_choice
+if [[ $gpu_choice -eq "y" ]]
+then
+    sudo pacman -S --noconfirm nvidia nvidia-lts
+fi
+
+
 echo "Choose your desktop enviroment:\n"
 echo "1---XFCE4"
 echo "2---KDE Plasma"
 echo "3---GNOME"
 echo "4---LXQT"
 echo "5---CINNAMON"
-read choice
-case $choice in
-1)
-    echo "Installing XFCE4"
+read de_choice
+case $de_choice in
+1 | *)
+    echo "Installing XFCE4(default)"
     sudo pacman -S --noconfirm xfce4 xfce4-goodies
     ;;
 2)
