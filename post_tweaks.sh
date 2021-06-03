@@ -45,7 +45,7 @@ echo "4---LXQT"
 echo "5---CINNAMON"
 read de_choice
 case $de_choice in
-1 | *)
+1)
     echo "Installing XFCE4(default)"
     sudo pacman -S --noconfirm xfce4 xfce4-goodies
     ;;
