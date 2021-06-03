@@ -7,7 +7,7 @@ sudo hostnamectl set-hostname $hostname
 basehost="127.0.0.1 "
 sudo echo "127.0.0.1 localhost" >>/etc/hosts
 sudo echo "$basehost$hostname" >>/etc/hosts
-sudo pacman -S --noconfirm xorg xorg-server mesa linux-firmware gvfs file-roller pulseaudio pavucontrol alsa alsa-utils network-manager-applet bluez lightdm lightdm-gtk-greeter firefox konsole okular
+sudo pacman -S --noconfirm xorg xorg-server mesa linux-firmware gvfs file-roller pulseaudio pavucontrol alsa alsa-utils network-manager-applet bluez lightdm lightdm-gtk-greeter firefox konsole okular neofetch
 sudo nano /etc/lightdm/lightdm.conf
 sudo systemctl enable lightdm
 git clone https://aur.archlinux.org/yay.git
@@ -31,7 +31,8 @@ echo "Are you using nvidia graphic card ?"
 echo "y---Yes"
 echo "n---No"
 read gpu_choice
-if [[ $gpu_choice -eq "y" ]]
+
+if [ $gpu_choice = "y" ]
 then
     sudo pacman -S --noconfirm nvidia nvidia-lts
 fi
