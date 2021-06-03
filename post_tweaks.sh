@@ -12,7 +12,7 @@ sudo nano /etc/lightdm/lightdm.conf
 sudo systemctl enable lightdm
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si
+makepkg -si --noconfirm
 
 echo "Your CPU came from which manufacturer? (amd or intel):"
 echo "1---Intel"
