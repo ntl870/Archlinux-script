@@ -1,7 +1,7 @@
 #!/bin/bash
 pacman -S --noconfirm linux linux-headers linux-lts linux-lts-headers openssh nano
 systemctl enable sshd
-pacman -S --noconfirm networkmanager wpa_supplicant wireless_tools netctl dialog git
+pacman -S networkmanager wpa_supplicant wireless_tools netctl dialog git
 systemctl enable NetworkManager
 mkinitcpio -p linux
 mkinitcpio -p linux-lts
