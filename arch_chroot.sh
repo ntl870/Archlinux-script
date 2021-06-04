@@ -1,5 +1,5 @@
 #!/bin/bash
-pacman -S --noconfirm linux linux-headers linux-lts linux-lts-headers openssh nano mkinitcpio
+pacman -S --noconfirm linux linux-headers linux-lts linux-lts-headers openssh nano
 systemctl enable sshd
 pacman -S --noconfirm networkmanager wpa_supplicant wireless_tools netctl dialog git
 systemctl enable NetworkManager
