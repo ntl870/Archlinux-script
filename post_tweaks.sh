@@ -14,7 +14,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
 
-echo "Your CPU came from which manufacturer? (amd or intel):"
+echo "Are you using intel or amd CPU ?"
 echo "1---Intel"
 echo "2---AMD"
 read cpu_choice
@@ -32,11 +32,9 @@ echo "y---Yes"
 echo "n---No"
 read gpu_choice
 
-if [ $gpu_choice = "y" ]
-then
+if [ $gpu_choice = "y" ]; then
     sudo pacman -S --noconfirm nvidia nvidia-lts
 fi
-
 
 echo "Choose your desktop enviroment:\n"
 echo "1---XFCE4"
