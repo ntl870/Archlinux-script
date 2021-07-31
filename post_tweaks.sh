@@ -5,8 +5,8 @@ echo "Enter hostname"
 read hostname
 sudo hostnamectl set-hostname $hostname
 basehost="127.0.0.1 "
-sudo echo "127.0.0.1 localhost" >>/etc/hosts
-sudo echo "$basehost$hostname" >>/etc/hosts
+sudo bash -c 'echo "127.0.0.1 localhost" >>/etc/hosts'
+sudo bash -c 'echo "$basehost$hostname" >>/etc/hosts'
 sudo pacman -S --noconfirm xorg xorg-server mesa linux-firmware gvfs file-roller pulseaudio pavucontrol
 sudo pacman -S --noconfirm alsa alsa-utils network-manager-applet bluez lightdm lightdm-gtk-greeter firefox konsole okular neofetch
 sudo nano /etc/lightdm/lightdm.conf
@@ -37,12 +37,15 @@ if [ $gpu_choice = "y" ]; then
     sudo pacman -S --noconfirm nvidia nvidia-lts
 fi
 
-echo "Choose your desktop enviroment:\n"
+echo "Choose your desktop enviroment/windows manager:\n"
 echo "1---XFCE4"
 echo "2---KDE Plasma"
 echo "3---GNOME"
 echo "4---LXQT"
 echo "5---CINNAMON"
+echo "6---awesomeWM-1"
+echo "7---awesomeWM-2"
+echo "8---awesomeWM-3"
 read de_choice
 case $de_choice in
 1)
@@ -65,5 +68,32 @@ case $de_choice in
 5)
     echo "Installing CINNAMON"
     sudo pacman -S cinnamon
+    ;;
+6)
+    echo "Installing awesomeWM-1"
+    yay -S --noconfirm awesome-git i3lock-fancy-git
+    mkdir ~/.config/awesome
+    git clone https://github.com/ntl870/awesome-config.git
+    cd awesome-config
+    cp * -r ~/.config/awesome
+    sudo pacman -S --noconfirm rofi picom xclip
+    ;;
+7)
+    echo "Installing awesomeWM-2"
+    yay -S --noconfirm awesome-git picom-git
+    mkdir ~/.config/awesome
+    git clone https://github.com/ntl870/awesome-config-2.git
+    cd awesome-config-2
+    cp * -r ~/.config/awesome
+    sudo pacman -S --noconfirm rofi xclip
+    ;;
+8)
+    echo "Installing awesomeWM-3"
+    yay -S --noconfirm awesome-git picom-ibhagwan-git i3lock-fancy-git
+    mkdir ~/.config/awesome
+    git clone https://github.com/ntl870/awesome-config-3.git
+    cd awesome-config-3
+    cp * -r ~/.config/awesome
+    sudo pacman -S --noconfirm rofi xclip bluez-utils iw
     ;;
 esac
