@@ -94,6 +94,6 @@ case $de_choice in
     git clone https://github.com/ntl870/awesome-config-3.git
     cd awesome-config-3
     cp * -r ~/.config/awesome
-    sudo pacman -S --noconfirm rofi xclip bluez-utils iw
+    sudo pacman -S --noconfirm rofi xclip bluez-utils iw ttf-ubuntu-font-family
     ;;
 esac
