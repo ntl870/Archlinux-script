@@ -8,7 +8,7 @@ basehost="127.0.0.1 "
 sudo bash -c 'echo "127.0.0.1 localhost" >>/etc/hosts'
 sudo bash -c 'echo "$basehost$hostname" >>/etc/hosts'
 sudo pacman -S --noconfirm xorg xorg-server mesa linux-firmware gvfs file-roller pulseaudio pavucontrol
-sudo pacman -S --noconfirm alsa alsa-utils network-manager-applet bluez lightdm lightdm-gtk-greeter firefox konsole okular neofetch
+sudo pacman -S --noconfirm alsa alsa-utils network-manager-applet bluez lightdm lightdm-gtk-greeter firefox alacritty okular neofetch
 sudo nano /etc/lightdm/lightdm.conf
 sudo systemctl enable lightdm
 git clone https://aur.archlinux.org/yay.git
